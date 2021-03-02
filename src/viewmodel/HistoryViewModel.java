@@ -9,6 +9,8 @@ public class HistoryViewModel {
         this.model = model;
     }
 
-    public void clear(){
+    public void clear()
+    {
+
     }
 }

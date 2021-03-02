@@ -94,6 +94,7 @@ public class Thermometer implements Runnable{
      * @param max an upper limit (may temporally be exceeded)
      * @return an updated external temperature
      */
+
     public double externalTemperature(double t0, double min, double max)
     {
         double left = t0 - min;

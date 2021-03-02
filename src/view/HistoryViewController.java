@@ -4,7 +4,8 @@ import javafx.scene.layout.Region;
 import viewmodel.HistoryViewModel;
 
 
-public class HistoryViewController {
+public class HistoryViewController
+{
     private ViewHandler viewHandler;
     private HistoryViewModel viewModel;
     private Region root;

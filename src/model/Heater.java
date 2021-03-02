@@ -1,13 +1,15 @@
 package model;
 
-public class Heater {
+public class Heater
+{
     private HeaterStates heaterState;
 
     public Heater() {
         heaterState = new Heater0();
     }
 
-    public void heatUp() {
+    public void heatUp()
+    {
         heaterState.HeatUp(this);
         System.out.println("HeatingUp");
     }
@@ -22,4 +24,8 @@ public class Heater {
         this.heaterState = heaterState;
     }
 
+    public int getPower()
+    {
+       return heaterState.getPower();
+    }
 }
