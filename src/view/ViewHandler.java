@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import viewmodel.HistoryViewModel;
 import viewmodel.LimitViewModel;
 import viewmodel.ViewModelFactory;
 
@@ -14,6 +15,7 @@ public class ViewHandler {
     private CentralHeatingViewController temperatureViewController;
     private LogViewController heaterViewController;
     private LimitViewController limitViewController;
+    private HistoryViewController historyViewController;
 
 
     public ViewHandler(ViewModelFactory viewModelFactory)
@@ -41,6 +43,9 @@ public class ViewHandler {
                 break;
             case "limit":
                 root = loadLimitView("LimitView.fxml");
+                break;
+            case "history":
+                root = loadHistoryView("HistoryView.fxml");
                 break;
         }
         currentScene.setRoot(root);
@@ -134,5 +139,30 @@ public class ViewHandler {
             limitViewController.reset();
         }
         return limitViewController.getRoot();
+    }
+
+    private Region loadHistoryView(String fxmlFile)
+    {
+        if (historyViewController == null)
+        {
+            try
+            {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource(fxmlFile));
+                Region root = loader.load();
+                historyViewController = loader.getController();
+                historyViewController
+                        .init(this, viewModelFactory.getHistoryViewModel(), root);
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        else
+        {
+            historyViewController.reset();
+        }
+        return historyViewController.getRoot();
     }
 }
