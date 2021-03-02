@@ -68,15 +68,15 @@ public class ViewHandler {
 
     private Region loadTemperatureView(String fxmlFile)
     {
-        if (temperatureViewController == null)
+        if (centralHeatingViewController == null)
         {
             try
             {
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource(fxmlFile));
                 Region root = loader.load();
-                temperatureViewController = loader.getController();
-                temperatureViewController
+                centralHeatingViewController = loader.getController();
+                centralHeatingViewController
                         .init(this, viewModelFactory.getTemperatureViewModel(), root);
             }
             catch (Exception e)
@@ -86,9 +86,9 @@ public class ViewHandler {
         }
         else
         {
-            temperatureViewController.reset();
+            centralHeatingViewController.reset();
         }
-        return temperatureViewController.getRoot();
+        return centralHeatingViewController.getRoot();
     }
 
     private Region loadHeaterView(String fxmlFile)
