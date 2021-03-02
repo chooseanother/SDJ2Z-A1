@@ -3,6 +3,7 @@ package viewmodel;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import mediator.Model;
 import model.Model;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
