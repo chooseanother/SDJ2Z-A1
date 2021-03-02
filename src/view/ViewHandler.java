@@ -13,7 +13,7 @@ public class ViewHandler {
     private Stage primaryStage;
     private ViewModelFactory viewModelFactory;
     private CentralHeatingViewController centralHeatingViewController;
-    private WarningLogViewController heaterViewController;
+    private WarningLogViewController warningLogViewController;
     private LimitViewController limitViewController;
     private HistoryViewController historyViewController;
 
@@ -93,15 +93,15 @@ public class ViewHandler {
 
     private Region loadHeaterView(String fxmlFile)
     {
-        if (heaterViewController == null)
+        if (warningLogViewController == null)
         {
             try
             {
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource(fxmlFile));
                 Region root = loader.load();
-                heaterViewController = loader.getController();
-                heaterViewController
+                warningLogViewController = loader.getController();
+                warningLogViewController
                         .init(this, viewModelFactory.getHeaterViewModel(), root);
             }
             catch (Exception e)
@@ -111,9 +111,9 @@ public class ViewHandler {
         }
         else
         {
-            heaterViewController.reset();
+            warningLogViewController.reset();
         }
-        return heaterViewController.getRoot();
+        return warningLogViewController.getRoot();
     }
 
     private Region loadLimitView(String fxmlFile)
