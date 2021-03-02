@@ -46,10 +46,16 @@ public class ModelManager implements Model
         property.firePropertyChange("temperature",old,temperature);
 
         if (limits.isOverUpperLimit(temperature)){
+            //create new warning (too be implemented)
+            //add to warning list (too be implemented)
+
            property.firePropertyChange("over top",old,"too hot");
         }
         else if (limits.isUnderLowerLimit(temperature)){
-           property.firePropertyChange("over bottom",old,"too cold");
+            //create new warning (too be implemented)
+            //add to warning list (too be implemented)
+
+           property.firePropertyChange("under bottom",old,"too cold");
         }
     }
 
