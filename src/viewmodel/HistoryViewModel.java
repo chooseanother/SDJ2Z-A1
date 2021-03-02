@@ -16,6 +16,7 @@ public class HistoryViewModel implements PropertyChangeListener {
         this.list = FXCollections.observableArrayList();
     }
 
+
     public void clear(){
         list.clear();
     }
@@ -31,5 +32,6 @@ public class HistoryViewModel implements PropertyChangeListener {
             }
             list.add(new SimpleTemperatureViewModel(model.getLastInsertedTemperature()));
         }
+
     }
 }

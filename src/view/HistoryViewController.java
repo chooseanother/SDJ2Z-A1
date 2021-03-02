@@ -10,10 +10,12 @@ import javafx.util.converter.IntegerStringConverter;
 import viewmodel.HistoryViewModel;
 import viewmodel.SimpleTemperatureViewModel;
 
+
 public class HistoryViewController {
     @FXML private TableView<SimpleTemperatureViewModel> temperatureTable;
     @FXML private TableColumn<SimpleTemperatureViewModel, String> IDColumn;
     @FXML private TableColumn<SimpleTemperatureViewModel, String> temperatureColumn;
+
     private ViewHandler viewHandler;
     private HistoryViewModel viewModel;
     private Region root;
