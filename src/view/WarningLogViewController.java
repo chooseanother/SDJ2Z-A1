@@ -24,8 +24,6 @@ public class WarningLogViewController {
         this.root = root;
         logTable.setItems(viewModel.getLog());
         newWarning.textProperty().bind(viewModel.getWarning());
-
-        //bind
     }
 
     public Region getRoot(){

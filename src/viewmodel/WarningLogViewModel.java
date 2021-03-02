@@ -2,22 +2,26 @@ package viewmodel;
 
 
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import model.Model;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
+import java.awt.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 public class WarningLogViewModel implements  PropertyChangeListener  {
     private Model model;
     private ObservableList<String> log;
-    private SimpleStringProperty warning;
+    private StringProperty warning;
 
     public WarningLogViewModel(Model model) {
         this.model = model;
         log = FXCollections.observableArrayList();
-        this.warning = new SimpleStringProperty();
+        this.warning = new SimpleStringProperty("");
+        //loadFromModel();
 
     }
 
@@ -27,14 +31,30 @@ public class WarningLogViewModel implements  PropertyChangeListener  {
 
     public void clear(){
         log.clear();
+        warning.setValue("");
     }
 
-    public SimpleStringProperty getWarning() {
+    public StringProperty getWarning() {
         return warning;
     }
+   // public addWarning(Warning warning)  {  log.add(new Warning(warning))  }
 
+
+  //  private void loadFromModel(){
+  //       if (model.getAllWarnings().size()>0) {
+  //           for (Warning e : model.getAllWarnings()) {
+  //               log.add(new Warning(e));
+  //            }
+  //        }
+  //    }
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        Platform.runLater(()->log.add(0,evt.getOldValue()+": "+evt.getNewValue()));
+
+        Platform.runLater(()->{
+            if (evt.getPropertyName().equals("warning")) {
+            //addWarning((Warning) evt.getNewValue());
+            }
+        });
+
     }
 }
