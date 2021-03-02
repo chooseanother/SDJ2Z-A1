@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import viewmodel.LimitViewModel;
 import viewmodel.ViewModelFactory;
 
 public class ViewHandler {
@@ -12,6 +13,7 @@ public class ViewHandler {
     private ViewModelFactory viewModelFactory;
     private CentralHeatingViewController temperatureViewController;
     private LogViewController heaterViewController;
+    private LimitViewController limitViewController;
 
 
     public ViewHandler(ViewModelFactory viewModelFactory)
@@ -36,6 +38,9 @@ public class ViewHandler {
                 break;
             case "log":
                 root = loadHeaterView("LogView.fxml");
+                break;
+            case "limit":
+                root = loadLimitView("LimitView.fxml");
                 break;
         }
         currentScene.setRoot(root);
@@ -104,5 +109,30 @@ public class ViewHandler {
             heaterViewController.reset();
         }
         return heaterViewController.getRoot();
+    }
+
+    private Region loadLimitView(String fxmlFile)
+    {
+        if (limitViewController == null)
+        {
+            try
+            {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource(fxmlFile));
+                Region root = loader.load();
+                limitViewController = loader.getController();
+                limitViewController
+                        .init(this, viewModelFactory.getLimitViewModel(), root);
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        else
+        {
+            limitViewController.reset();
+        }
+        return limitViewController.getRoot();
     }
 }
