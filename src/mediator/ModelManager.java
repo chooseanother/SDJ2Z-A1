@@ -40,6 +40,7 @@ public class ModelManager implements Model
         } else if (old == null) {
             System.out.println("--> new=" + temperature + " (old=" + old + ")");
         }
+        property.firePropertyChange("temperature",old,temperature);
     }
 
     @Override
