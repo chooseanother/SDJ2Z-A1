@@ -2,10 +2,10 @@ package viewmodel;
 
 import mediator.Model;
 
-public class LimitViewModel {
+public class HistoryViewModel {
     private Model model;
 
-    public LimitViewModel(Model model){
+    public HistoryViewModel(Model model){
         this.model = model;
     }
 

@@ -3,7 +3,7 @@ package viewmodel;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import model.Model;
+import mediator.Model;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
