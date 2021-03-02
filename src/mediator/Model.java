@@ -12,4 +12,6 @@ public interface Model extends UnnamedPropertyChangeSubject
     Temperature getLastInsertedTemperature(String id);
     void setUpperLimit(double value) throws Exception;
     void setLowerLimit(double value) throws Exception;
+    double getUpperLimit();
+    double getLowerLimit();
 }

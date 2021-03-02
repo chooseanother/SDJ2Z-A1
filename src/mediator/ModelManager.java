@@ -78,6 +78,17 @@ public class ModelManager implements Model
     }
 
     @Override
+    public double getUpperLimit() {
+        return limits.getUpper();
+    }
+
+    @Override
+    public double getLowerLimit() {
+        return limits.getUpper();
+    }
+
+
+    @Override
     public void addListener(PropertyChangeListener listener) {
         property.addPropertyChangeListener(listener);
     }
