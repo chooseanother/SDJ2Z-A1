@@ -3,10 +3,10 @@ package viewmodel;
 
 import model.Model;
 
-public class HeaterViewModel {
+public class LogViewModel {
     private Model model;
 
-    public HeaterViewModel(Model model){
+    public LogViewModel(Model model){
         this.model = model;
 
     }

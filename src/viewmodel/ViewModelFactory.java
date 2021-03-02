@@ -4,19 +4,19 @@ package viewmodel;
 import model.Model;
 
 public class ViewModelFactory {
-    private HeaterViewModel heaterViewModel;
-    private TemperatureViewModel temperatureViewModel;
+    private LogViewModel heaterViewModel;
+    private CentralHeatingViewModel temperatureViewModel;
 
     public ViewModelFactory(Model model){
-        heaterViewModel = new HeaterViewModel(model);
-        temperatureViewModel = new TemperatureViewModel(model);
+        heaterViewModel = new LogViewModel(model);
+        temperatureViewModel = new CentralHeatingViewModel(model);
     }
 
-    public HeaterViewModel getHeaterViewModel() {
+    public LogViewModel getHeaterViewModel() {
         return heaterViewModel;
     }
 
-    public TemperatureViewModel getTemperatureViewModel() {
+    public CentralHeatingViewModel getTemperatureViewModel() {
         return temperatureViewModel;
     }
 }

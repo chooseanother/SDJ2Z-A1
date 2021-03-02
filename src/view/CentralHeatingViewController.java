@@ -1,19 +1,21 @@
 package view;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
-import viewmodel.TemperatureViewModel;
+import viewmodel.CentralHeatingViewModel;
 
-public class TemperatureViewController {
+public class CentralHeatingViewController {
     @FXML Label t0,t1,t2,t0Warn,t1Warn,t2Warn,heatLvl;
+    @FXML Button up, down;
     private ViewHandler viewHandler;
-    private TemperatureViewModel viewModel;
+    private CentralHeatingViewModel viewModel;
     private Region root;
 
-    public TemperatureViewController(){}
+    public CentralHeatingViewController(){}
 
-    public void init(ViewHandler viewHandler, TemperatureViewModel viewModel, Region root){
+    public void init(ViewHandler viewHandler, CentralHeatingViewModel viewModel, Region root){
         this.viewHandler = viewHandler;
         this.viewModel = viewModel;
         this.root = root;
@@ -37,7 +39,22 @@ public class TemperatureViewController {
     }
 
     @FXML
-    private void onHeater(){
-        viewHandler.openView("heater");
+    private void onUp(){
+        viewModel.up();
+    }
+
+    @FXML
+    private void onDown(){
+        viewModel.down();
+    }
+
+    @FXML
+    private void onLog(){
+        viewHandler.openView("log");
+    }
+
+    @FXML
+    private void onCritical(){
+        viewHandler.openView("limit");
     }
 }

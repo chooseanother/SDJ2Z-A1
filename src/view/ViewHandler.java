@@ -10,8 +10,8 @@ public class ViewHandler {
     private Scene currentScene;
     private Stage primaryStage;
     private ViewModelFactory viewModelFactory;
-    private TemperatureViewController temperatureViewController;
-    private HeaterViewController heaterViewController;
+    private CentralHeatingViewController temperatureViewController;
+    private LogViewController heaterViewController;
 
 
     public ViewHandler(ViewModelFactory viewModelFactory)
@@ -23,7 +23,7 @@ public class ViewHandler {
     public void start(Stage primaryStage)
     {
         this.primaryStage = primaryStage;
-        openView("temp");
+        openView("home");
     }
 
     public void openView(String id)
@@ -31,11 +31,11 @@ public class ViewHandler {
         Region root = null;
         switch (id)
         {
-            case "temp":
-                root = loadTemperatureView("TemperatureView.fxml");
+            case "home":
+                root = loadTemperatureView("CentralHeatingView.fxml");
                 break;
-            case "heat":
-                root = loadHeaterView("HeaterView.fxml");
+            case "log":
+                root = loadHeaterView("LogView.fxml");
                 break;
         }
         currentScene.setRoot(root);

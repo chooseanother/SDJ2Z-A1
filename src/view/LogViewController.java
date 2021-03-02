@@ -1,16 +1,16 @@
 package view;
 
 import javafx.scene.layout.Region;
-import viewmodel.HeaterViewModel;
+import viewmodel.LogViewModel;
 
-public class HeaterViewController {
+public class LogViewController {
     private ViewHandler viewHandler;
-    private HeaterViewModel viewModel;
+    private LogViewModel viewModel;
     private Region root;
 
-    public HeaterViewController(){}
+    public LogViewController(){}
 
-    public void init(ViewHandler viewHandler, HeaterViewModel viewModel, Region root) {
+    public void init(ViewHandler viewHandler, LogViewModel viewModel, Region root) {
         this.viewHandler = viewHandler;
         this.viewModel = viewModel;
         this.root = root;

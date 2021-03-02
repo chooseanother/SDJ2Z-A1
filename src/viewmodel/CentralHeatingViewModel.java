@@ -8,11 +8,11 @@ import model.Model;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-public class TemperatureViewModel implements PropertyChangeListener {
+public class CentralHeatingViewModel implements PropertyChangeListener {
     private Model model;
     private StringProperty t0,t1,t2,t0Warn,t1Warn,t2Warn,heatLvl;
 
-    public TemperatureViewModel(Model model){
+    public CentralHeatingViewModel(Model model){
         this.model = model;
         t0 = new SimpleStringProperty();
         t1 = new SimpleStringProperty();
@@ -27,6 +27,14 @@ public class TemperatureViewModel implements PropertyChangeListener {
         t0Warn.setValue(null);
         t1Warn.setValue(null);
         t2Warn.setValue(null);
+    }
+
+    public void up(){
+//        model.up();
+    }
+
+    public void down(){
+//        model.down();
     }
 
     public StringProperty getT0(){
