@@ -24,9 +24,6 @@ public class HistoryViewModel implements PropertyChangeListener {
         selectedExerciseProperty = new SimpleObjectProperty<>();
     }
 
-    public void clear(){
-        list.clear();
-    }
     public void setSelected(SimpleTemperatureViewModel exerciseVM){
         selectedExerciseProperty = new SimpleObjectProperty<>(exerciseVM);
     }

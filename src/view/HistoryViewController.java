@@ -41,7 +41,6 @@ public class HistoryViewController {
     }
 
     public void reset(){
-        viewModel.clear();
     }
 
     public void backOnAction(ActionEvent actionEvent) {
