@@ -26,10 +26,13 @@ public class HistoryViewController {
         this.viewHandler = viewHandler;
         this.viewModel = viewModel;
         this.root = root;
-
+        temperatureTable.getSelectionModel().selectedItemProperty().addListener(
+                (obs, oldVal, newVal) -> viewModel.setSelected(newVal));
         IDColumn.setCellValueFactory(cellData -> cellData.getValue().getIDProperty());
         temperatureColumn.setCellValueFactory(cellData -> cellData.getValue().getValueProperty().asString());
+
         temperatureTable.setItems(viewModel.getAll());
+
         //bind
     }
 
@@ -38,7 +41,6 @@ public class HistoryViewController {
     }
 
     public void reset(){
-        viewModel.clear();
     }
 
     public void backOnAction(ActionEvent actionEvent) {
