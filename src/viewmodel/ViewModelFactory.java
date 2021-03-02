@@ -4,24 +4,24 @@ package viewmodel;
 import mediator.Model;
 
 public class ViewModelFactory {
-    private LogViewModel logViewModel;
-    private CentralHeatingViewModel centralHeatingViewModel;
+    private WarningLogViewModel heaterViewModel;
+    private CentralHeatingViewModel temperatureViewModel;
     private LimitViewModel limitViewModel;
     private HistoryViewModel historyViewModel;
 
     public ViewModelFactory(Model model){
-        logViewModel = new LogViewModel(model);
-        centralHeatingViewModel = new CentralHeatingViewModel(model);
+        heaterViewModel = new WarningLogViewModel(model);
+        temperatureViewModel = new CentralHeatingViewModel(model);
         limitViewModel = new LimitViewModel(model);
         historyViewModel = new HistoryViewModel(model);
     }
 
-    public LogViewModel getLogViewModel() {
-        return logViewModel;
+    public WarningLogViewModel getHeaterViewModel() {
+        return heaterViewModel;
     }
 
-    public CentralHeatingViewModel getCentralHeatingViewModel() {
-        return centralHeatingViewModel;
+    public CentralHeatingViewModel getTemperatureViewModel() {
+        return temperatureViewModel;
     }
 
     public LimitViewModel getLimitViewModel() {

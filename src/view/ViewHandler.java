@@ -13,7 +13,7 @@ public class ViewHandler {
     private Stage primaryStage;
     private ViewModelFactory viewModelFactory;
     private CentralHeatingViewController centralHeatingViewController;
-    private LogViewController logViewController;
+    private WarningLogViewController heaterViewController;
     private LimitViewController limitViewController;
     private HistoryViewController historyViewController;
 
@@ -68,16 +68,16 @@ public class ViewHandler {
 
     private Region loadTemperatureView(String fxmlFile)
     {
-        if (centralHeatingViewController == null)
+        if (temperatureViewController == null)
         {
             try
             {
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource(fxmlFile));
                 Region root = loader.load();
-                centralHeatingViewController = loader.getController();
-                centralHeatingViewController
-                        .init(this, viewModelFactory.getCentralHeatingViewModel(), root);
+                temperatureViewController = loader.getController();
+                temperatureViewController
+                        .init(this, viewModelFactory.getTemperatureViewModel(), root);
             }
             catch (Exception e)
             {
@@ -86,23 +86,23 @@ public class ViewHandler {
         }
         else
         {
-            centralHeatingViewController.reset();
+            temperatureViewController.reset();
         }
-        return centralHeatingViewController.getRoot();
+        return temperatureViewController.getRoot();
     }
 
     private Region loadHeaterView(String fxmlFile)
     {
-        if (logViewController == null)
+        if (heaterViewController == null)
         {
             try
             {
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource(fxmlFile));
                 Region root = loader.load();
-                logViewController = loader.getController();
-                logViewController
-                        .init(this, viewModelFactory.getLogViewModel(), root);
+                heaterViewController = loader.getController();
+                heaterViewController
+                        .init(this, viewModelFactory.getHeaterViewModel(), root);
             }
             catch (Exception e)
             {
@@ -111,9 +111,9 @@ public class ViewHandler {
         }
         else
         {
-            logViewController.reset();
+            heaterViewController.reset();
         }
-        return logViewController.getRoot();
+        return heaterViewController.getRoot();
     }
 
     private Region loadLimitView(String fxmlFile)
