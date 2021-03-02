@@ -57,18 +57,15 @@ public class WarningLogViewModel implements  PropertyChangeListener  {
             if (evt.getPropertyName().equals("overtop")) {
 
                 Temperature temp = ((Temperature) evt.getOldValue());
-                String temperature = temp.getValue()+"";
-                String temperature2 = temperature.substring(0,4);
-                log.add("ID of thermometer: "+ temp.getId() + "  temperature: "+temperature2+" time: "+temp.getTime() + "  its too hot");
+
+                log.add("ID of thermometer: "+ temp.getId() + "  temperature: "+String.format("%.2f",temp.getValue())+" time: "+temp.getTime() + "  its too hot");
                 //addWarning((Warning) evt.getNewValue());
 
             }
             if (evt.getPropertyName().equals("underbottom")) {
 
                 Temperature temp = ((Temperature) evt.getOldValue());
-                String temperature = temp.getValue()+"";
-                String temperature2 = temperature.substring(0,4);
-                log.add("ID of thermometer: "+ temp.getId() + "  temperature: "+temperature2+" time: "+temp.getTime().getTimestamp() + "  its too cold");
+                log.add("ID of thermometer: "+ temp.getId() + "  temperature: "+String.format("%.2f",temp.getValue())+" time: "+temp.getTime().getTimestamp() + "  its too cold");
                 //addWarning((Warning) evt.getNewValue());
 
             }
