@@ -1,5 +1,6 @@
 package view;
 
+import javafx.fxml.FXML;
 import javafx.scene.layout.Region;
 import viewmodel.TemperatureViewModel;
 
@@ -24,5 +25,10 @@ public class TemperatureViewController {
 
     public void reset(){
         viewModel.clear();
+    }
+
+    @FXML
+    public void onHeater(){
+        viewHandler.openView("heater");
     }
 }
