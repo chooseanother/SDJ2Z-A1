@@ -5,7 +5,7 @@
 
 <VBox prefHeight="216.0" prefWidth="180.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.HistoryViewController">
    <children>
-      <VBox prefHeight="77.0" prefWidth="414.0">
+      <VBox prefHeight="32.0" prefWidth="191.0">
          <children>
             <Label text="Temperature History" />
          </children>
