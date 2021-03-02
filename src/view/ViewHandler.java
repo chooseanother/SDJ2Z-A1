@@ -39,7 +39,7 @@ public class ViewHandler {
                 root = loadCentralHeatingView("CentralHeatingView.fxml");
                 break;
             case "log":
-                root = loadLogView("LogView.fxml");
+                root = loadWarningLogView("WarningLogView.fxml");
                 break;
             case "limit":
                 root = loadLimitView("LimitView.fxml");
@@ -91,7 +91,7 @@ public class ViewHandler {
         return centralHeatingViewController.getRoot();
     }
 
-    private Region loadLogView(String fxmlFile)
+    private Region loadWarningLogView(String fxmlFile)
     {
         if (warningLogViewController == null)
         {
