@@ -1,6 +1,7 @@
 package model;
 
-public class Heater {
+public class Heater
+{
     private HeaterStates heaterState;
 
     public Heater() {
@@ -22,4 +23,8 @@ public class Heater {
         this.heaterState = heaterState;
     }
 
+    public void getCurrentPower()
+    {
+        heaterState.getPower();
+    }
 }

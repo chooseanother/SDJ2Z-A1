@@ -1,6 +1,7 @@
 package model;
 
-public abstract class HeaterStates {
+public abstract class HeaterStates
+{
     public void HeatUp(Heater heater)
     {
 
