@@ -21,12 +21,12 @@ public class ModelManager implements Model
 
     public void heatUp()
     {
-        if (heater.add() < 4) heater.heatUp();
+        heater.heatUp();
     }
 
     public void heatDown()
     {
-        if (heater.add() > 0) heater.heatDown();
+        heater.heatDown();
     }
 
     @Override

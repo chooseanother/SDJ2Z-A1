@@ -24,7 +24,7 @@ public class Heater
         this.heaterState = heaterState;
     }
 
-    public int add()
+    public int getPower()
     {
        return heaterState.getPower();
     }
