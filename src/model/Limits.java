@@ -9,14 +9,20 @@ public class Limits {
     this.lower = lower;
   }
 
-  public void setLower(double lower) {
-    if(lower < upper)
-    this.lower = lower;
+  public void setLower(double lower) throws Exception {
+      if (lower < upper)
+        this.lower = lower;
+      else{
+        throw new Exception("value to set is to high");
+      }
   }
 
-  public void setUpper(double upper) {
+  public void setUpper(double upper) throws Exception {
     if(upper > lower)
     this.upper = upper;
+    else{
+      throw new Exception("value to set is too low");
+    }
   }
 
   public double getLower() {
@@ -31,7 +37,7 @@ public class Limits {
     return value > upper;
   }
 
-  public boolean isOverLowerLimit(double value){
+  public boolean isUnderLowerLimit(double value){
     return value < lower;
   }
 }

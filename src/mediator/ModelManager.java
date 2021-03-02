@@ -45,10 +45,10 @@ public class ModelManager implements Model
         }
         property.firePropertyChange("temperature",old,temperature);
 
-        if (limits.isOverLowerLimit(temperature)){
+        if (limits.isOverUpperLimit(temperature)){
            property.firePropertyChange("over top",old,"too hot");
         }
-        else if (limits.isOverLowerLimit(temperature)){
+        else if (limits.isUnderLowerLimit(temperature)){
            property.firePropertyChange("over bottom",old,"too cold");
         }
     }
