@@ -8,7 +8,8 @@ public class Heater
         heaterState = new Heater0();
     }
 
-    public void heatUp() {
+    public void heatUp()
+    {
         heaterState.HeatUp(this);
         System.out.println("HeatingUp");
     }
@@ -23,8 +24,8 @@ public class Heater
         this.heaterState = heaterState;
     }
 
-    public void getCurrentPower()
+    public int add()
     {
-        heaterState.getPower();
+       return heaterState.getPower();
     }
 }

@@ -19,6 +19,16 @@ public class ModelManager implements Model
         property = new PropertyChangeSupport(this);
     }
 
+    public void heatUp()
+    {
+        if (heater.add() < 4) heater.heatUp();
+    }
+
+    public void heatDown()
+    {
+        if (heater.add() > 0) heater.heatDown();
+    }
+
     @Override
     public void addTemperature(String id, double temperature)
     {
