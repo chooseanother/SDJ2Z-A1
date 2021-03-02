@@ -28,7 +28,7 @@ public class TemperatureViewController {
     }
 
     @FXML
-    public void onHeater(){
+    private void onHeater(){
         viewHandler.openView("heater");
     }
 }
