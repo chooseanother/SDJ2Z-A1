@@ -36,10 +36,10 @@ public class ViewHandler {
         switch (id)
         {
             case "home":
-                root = loadTemperatureView("CentralHeatingView.fxml");
+                root = loadCentralHeatingView("CentralHeatingView.fxml");
                 break;
             case "log":
-                root = loadHeaterView("LogView.fxml");
+                root = loadWarningLogView("WarningLogView.fxml");
                 break;
             case "limit":
                 root = loadLimitView("LimitView.fxml");
@@ -66,7 +66,7 @@ public class ViewHandler {
         primaryStage.close();
     }
 
-    private Region loadTemperatureView(String fxmlFile)
+    private Region loadCentralHeatingView(String fxmlFile)
     {
         if (centralHeatingViewController == null)
         {
@@ -91,7 +91,7 @@ public class ViewHandler {
         return centralHeatingViewController.getRoot();
     }
 
-    private Region loadHeaterView(String fxmlFile)
+    private Region loadWarningLogView(String fxmlFile)
     {
         if (warningLogViewController == null)
         {
