@@ -20,4 +20,8 @@ public class HistoryViewModel {
     public void load(){
         //for(int x = 0; x < model.)
     }
+
+    public ObservableList<SimpleTemperatureViewModel> getAll(){
+        return list;
+    }
 }
