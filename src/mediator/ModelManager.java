@@ -49,13 +49,16 @@ public class ModelManager implements Model
             //create new warning (too be implemented)
             //add to warning list (too be implemented)
 
-           property.firePropertyChange("over top",old,"too hot");
+            property.firePropertyChange("overtop",temp,"too hot");
+            System.out.println("too hot");
         }
         else if (limits.isUnderLowerLimit(temperature)){
             //create new warning (too be implemented)
             //add to warning list (too be implemented)
 
-           property.firePropertyChange("under bottom",old,"too cold");
+            property.firePropertyChange("underbottom",temp,"too cold");
+            System.out.println("too cold");
+
         }
     }
 
@@ -84,7 +87,7 @@ public class ModelManager implements Model
 
     @Override
     public double getLowerLimit() {
-        return limits.getUpper();
+        return limits.getLower();
     }
 
 
