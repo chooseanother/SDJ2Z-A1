@@ -2,11 +2,9 @@ package viewmodel;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import mediator.Model;
-import model.Temperature;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -39,6 +37,5 @@ public class HistoryViewModel implements PropertyChangeListener {
             }
             list.add(0,new SimpleTemperatureViewModel(model.getLastInsertedTemperature()));
         }
-
     }
 }

@@ -46,11 +46,17 @@ public class ModelManager implements Model
         property.firePropertyChange("temperature",old,temperature);
 
         if (limits.isOverUpperLimit(temperature)){
-           property.firePropertyChange("overtop",temp,"too hot");
+            //create new warning (too be implemented)
+            //add to warning list (too be implemented)
+
+            property.firePropertyChange("overtop",temp,"too hot");
             System.out.println("too hot");
         }
         else if (limits.isUnderLowerLimit(temperature)){
-           property.firePropertyChange("underbottom",temp,"too cold");
+            //create new warning (too be implemented)
+            //add to warning list (too be implemented)
+
+            property.firePropertyChange("underbottom",temp,"too cold");
             System.out.println("too cold");
 
         }
@@ -73,6 +79,17 @@ public class ModelManager implements Model
     @Override public void setLowerLimit(double value) throws Exception {
         limits.setLower(value);
     }
+
+    @Override
+    public double getUpperLimit() {
+        return limits.getUpper();
+    }
+
+    @Override
+    public double getLowerLimit() {
+        return limits.getLower();
+    }
+
 
     @Override
     public void addListener(PropertyChangeListener listener) {
