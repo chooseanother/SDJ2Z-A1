@@ -6,12 +6,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Region;
 import viewmodel.HistoryViewModel;
-
+import viewmodel.SimpleTemperatureViewModel;
 
 public class HistoryViewController {
     @FXML private TableView<HistoryViewController> temperatureTable;
-    @FXML private TableColumn<HistoryViewController, String> IDColumn;
-    @FXML private TableColumn<HistoryViewController, Double> temperatureColumn;
+    @FXML private TableColumn<SimpleTemperatureViewModel, String> IDColumn;
+    @FXML private TableColumn<SimpleTemperatureViewModel, Double> temperatureColumn;
     private ViewHandler viewHandler;
     private HistoryViewModel viewModel;
     private Region root;
@@ -23,7 +23,7 @@ public class HistoryViewController {
         this.viewModel = viewModel;
         this.root = root;
 
-        //IDColumn.setCellValueFactory(cellData -> cellData.getValue());
+        //IDColumn.setCellValueFactory(cellData -> cellData.getValue().);
         //bind
     }
 
