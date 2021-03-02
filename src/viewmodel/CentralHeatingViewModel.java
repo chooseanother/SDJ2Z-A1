@@ -11,7 +11,8 @@ public class CentralHeatingViewModel implements PropertyChangeListener {
     private Model model;
     private StringProperty t0,t1,t2,t0Warn,t1Warn,t2Warn,heatLvl;
 
-    public CentralHeatingViewModel(Model model){
+    public CentralHeatingViewModel(Model model)
+    {
         this.model = model;
         t0 = new SimpleStringProperty();
         t1 = new SimpleStringProperty();
