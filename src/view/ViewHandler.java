@@ -23,7 +23,7 @@ public class ViewHandler {
     public void start(Stage primaryStage)
     {
         this.primaryStage = primaryStage;
-        openView("list");
+        openView("temp");
     }
 
     public void openView(String id)
