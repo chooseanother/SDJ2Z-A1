@@ -63,6 +63,14 @@ public class ModelManager implements Model
         return temperatureList.getLastTemperature(id);
     }
 
+    @Override public void setUpperLimit(double value) throws Exception {
+        limits.setUpper(value);
+    }
+
+    @Override public void setLowerLimit(double value) throws Exception {
+        limits.setLower(value);
+    }
+
     @Override
     public void addListener(PropertyChangeListener listener) {
         property.addPropertyChangeListener(listener);
