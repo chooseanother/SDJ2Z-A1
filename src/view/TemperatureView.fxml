@@ -1,14 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="view.TemperatureViewController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<VBox prefHeight="265.0" prefWidth="458.0" userData="Temperature" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.TemperatureViewController">
+   <children>
+      <HBox alignment="CENTER">
+         <children>
+            <Label text="Temperatures">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefWidth="200.0" spacing="10.0">
+         <children>
+            <Label prefWidth="130.0" text="Indoor temperature 1:" />
+            <Label fx:id="t1" alignment="CENTER_RIGHT" prefWidth="28.0" text="546" />
+            <Label fx:id="t1Warn" text="Warning!!1!" textFill="RED" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefWidth="200.0" spacing="10.0">
+         <children>
+            <Label prefWidth="130.0" text="Indoor temperature 2:" />
+            <Label fx:id="t2" alignment="CENTER_RIGHT" prefWidth="28.0" text="123" />
+            <Label fx:id="t2Warn" text="warn" textFill="RED" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding></HBox>
+      <HBox alignment="CENTER_LEFT" prefWidth="200.0" spacing="10.0">
+         <children>
+            <Label prefWidth="130.0" text="Outdoor temperature:" />
+            <Label fx:id="t0" alignment="CENTER_RIGHT" prefWidth="28.0" text="4" />
+            <Label fx:id="t0Warn" text="warn" textFill="RED" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding></HBox>
+      <HBox alignment="CENTER_LEFT" prefWidth="200.0" spacing="10.0">
+         <children>
+            <Label prefWidth="130.0" text="Heater level:" />
+            <Label alignment="CENTER_RIGHT" prefWidth="28.0" text="0" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding></HBox>
+      <VBox alignment="CENTER_RIGHT" prefWidth="100.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#onHeater" text="Heater control" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </children>
+</VBox>
