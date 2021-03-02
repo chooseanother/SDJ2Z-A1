@@ -23,7 +23,7 @@ public class LogViewModel implements  PropertyChangeListener  {
     }
 
     public void clear(){
-
+        log.clear();
     }
 
     @Override
