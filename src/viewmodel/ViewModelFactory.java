@@ -4,17 +4,17 @@ package viewmodel;
 import model.Model;
 
 public class ViewModelFactory {
-    private LogViewModel heaterViewModel;
+    private WarningLogViewModel heaterViewModel;
     private CentralHeatingViewModel temperatureViewModel;
     private LimitViewModel limitViewModel;
 
     public ViewModelFactory(Model model){
-        heaterViewModel = new LogViewModel(model);
+        heaterViewModel = new WarningLogViewModel(model);
         temperatureViewModel = new CentralHeatingViewModel(model);
         limitViewModel = new LimitViewModel(model);
     }
 
-    public LogViewModel getHeaterViewModel() {
+    public WarningLogViewModel getHeaterViewModel() {
         return heaterViewModel;
     }
 
