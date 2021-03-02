@@ -19,7 +19,7 @@ public class ModelManager implements Model
     {
         temperatureList = new TemperatureList();
         property = new PropertyChangeSupport(this);
-        limits = new Limits(0,50);
+        limits = new Limits(30,10);
     }
 
     public void heatUp()
