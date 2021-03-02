@@ -1,6 +1,7 @@
 package mediator;
 
 import model.Heater;
+import model.Limits;
 import model.Temperature;
 import model.TemperatureList;
 
@@ -12,11 +13,13 @@ public class ModelManager implements Model
     private Heater heater;
     private PropertyChangeSupport property;
     private TemperatureList temperatureList;
+    private Limits limits;
 
     public ModelManager()
     {
         temperatureList = new TemperatureList();
         property = new PropertyChangeSupport(this);
+        limits = new Limits(0,50);
     }
 
     public void heatUp()
@@ -41,6 +44,13 @@ public class ModelManager implements Model
             System.out.println("--> new=" + temperature + " (old=" + old + ")");
         }
         property.firePropertyChange("temperature",old,temperature);
+
+        if (limits.isOverLowerLimit(temperature)){
+           property.firePropertyChange("over top",old,"too hot");
+        }
+        else if (limits.isOverLowerLimit(temperature)){
+           property.firePropertyChange("over bottom",old,"too cold");
+        }
     }
 
     @Override
