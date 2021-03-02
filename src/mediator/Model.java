@@ -1,6 +1,7 @@
 package mediator;
 
 import model.Temperature;
+import utility.observer.subject.UnnamedPropertyChangeSubject;
 
 public interface Model extends UnnamedPropertyChangeSubject
 {

@@ -1,4 +1,4 @@
-package mediator;
+package utility;
 
 import javafx.util.StringConverter;
 
