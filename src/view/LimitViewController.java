@@ -1,10 +1,13 @@
 package view;
 
+import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
+import utility.DoubleStringConverter;
+import utility.IntStringConverter;
 import viewmodel.LimitViewModel;
 
 public class LimitViewController {
@@ -22,7 +25,11 @@ public class LimitViewController {
         this.root = root;
 
         //bind
-
+        upperLabel.textProperty().bind(viewModel.getUpperProperty());
+        lowerLabel.textProperty().bind(viewModel.getLowerProperty());
+        errorLabel.textProperty().bind(viewModel.getErrorProperty());
+//        Bindings.bindBidirectional(upperText.textProperty(), viewModel.getSetUpperProperty(), new IntStringConverter());
+//        Bindings.bindBidirectional(lowerText.textProperty(), viewModel.getSetLowerProperty(), new DoubleStringConverter());
     }
 
     public Region getRoot(){
