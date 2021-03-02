@@ -13,7 +13,7 @@ public class ViewHandler {
     private Stage primaryStage;
     private ViewModelFactory viewModelFactory;
     private CentralHeatingViewController temperatureViewController;
-    private LogViewController heaterViewController;
+    private WarningLogViewController heaterViewController;
     private LimitViewController limitViewController;
     private HistoryViewController historyViewController;
 

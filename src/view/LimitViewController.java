@@ -2,7 +2,6 @@ package view;
 
 import javafx.scene.layout.Region;
 import viewmodel.LimitViewModel;
-import viewmodel.LogViewModel;
 
 public class LimitViewController {
     private ViewHandler viewHandler;
