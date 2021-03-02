@@ -12,7 +12,7 @@ import java.beans.PropertyChangeListener;
 
 public class CentralHeatingViewModel implements PropertyChangeListener {
     private Model model;
-    private StringProperty t0, t1, t2, t0Warn, t1Warn, t2Warn, heatLvl;
+    private StringProperty t0, t1, t2, t1Warn, t2Warn, heatLvl;
 
     public CentralHeatingViewModel(Model model) {
         this.model = model;
@@ -20,24 +20,26 @@ public class CentralHeatingViewModel implements PropertyChangeListener {
         t0 = new SimpleStringProperty();
         t1 = new SimpleStringProperty();
         t2 = new SimpleStringProperty();
-        t0Warn = new SimpleStringProperty();
         t1Warn = new SimpleStringProperty();
         t2Warn = new SimpleStringProperty();
-        heatLvl = new SimpleStringProperty();
+        heatLvl = new SimpleStringProperty(String.valueOf(model.getHeatPower()));
     }
 
     public void clear() {
-        t0Warn.setValue(null);
-        t1Warn.setValue(null);
-        t2Warn.setValue(null);
+
+        t1Warn.setValue("");
+        t2Warn.setValue("");
+        heatLvl.set(String.valueOf(model.getHeatPower()));
     }
 
     public void up() {
         model.heatUp();
+        heatLvl.set(String.valueOf(model.getHeatPower()));
     }
 
     public void down() {
         model.heatDown();
+        heatLvl.set(String.valueOf(model.getHeatPower()));
     }
 
     public StringProperty getT0() {
@@ -52,9 +54,6 @@ public class CentralHeatingViewModel implements PropertyChangeListener {
         return t2;
     }
 
-    public StringProperty getT0Warn() {
-        return t0Warn;
-    }
 
     public StringProperty getT1Warn() {
         return t1Warn;
