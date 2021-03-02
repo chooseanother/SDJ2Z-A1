@@ -8,8 +8,8 @@ import javafx.scene.layout.Region;
 import viewmodel.LimitViewModel;
 
 public class LimitViewController {
-    @FXML private Label t1UpperLabel, t1LowerLabel, t2UpperLabel,t2LowerLabel,errorLabel;
-    @FXML private TextField t1UpperText, t1LowerText, t2UpperText, t2LowerText;
+    @FXML private Label upperLabel, lowerLabel, errorLabel;
+    @FXML private TextField upperText, lowerText;
     private ViewHandler viewHandler;
     private LimitViewModel viewModel;
     private Region root;
@@ -33,23 +33,13 @@ public class LimitViewController {
         viewModel.clear();
     }
 
-    @FXML private void t1UpperSet(ActionEvent event) {
-//        viewModel.setUpper();
+
+    @FXML private void upperSet(ActionEvent event) {
+        viewModel.setUpper();
     }
 
-    @FXML private void t1LowerSet(ActionEvent event) {
-//        viewModel.setUpper();
-
-    }
-
-    @FXML private void t2UpperSet(ActionEvent event) {
-//        viewModel.setUpper();
-
-    }
-
-    @FXML private void t2LowerSet(ActionEvent event) {
-//        viewModel.setUpper();
-
+    @FXML private void lowerSet(ActionEvent event) {
+        viewModel.setLower();
     }
 
     @FXML private void back(ActionEvent event) {
