@@ -14,4 +14,5 @@ public interface Model extends UnnamedPropertyChangeSubject
     void setLowerLimit(double value) throws Exception;
     double getUpperLimit();
     double getLowerLimit();
+    int getHeatPower();
 }

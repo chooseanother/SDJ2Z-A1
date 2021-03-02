@@ -17,6 +17,7 @@ public class ModelManager implements Model
 
     public ModelManager()
     {
+        heater = new Heater();
         temperatureList = new TemperatureList();
         property = new PropertyChangeSupport(this);
         limits = new Limits(30,10);
@@ -88,6 +89,11 @@ public class ModelManager implements Model
     @Override
     public double getLowerLimit() {
         return limits.getLower();
+    }
+
+    @Override
+    public int getHeatPower() {
+        return heater.getPower();
     }
 
 
