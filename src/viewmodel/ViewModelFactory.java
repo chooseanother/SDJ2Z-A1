@@ -1,7 +1,7 @@
 package viewmodel;
 
 
-import model.Model;
+import mediator.Model;
 
 public class ViewModelFactory {
     private LogViewModel heaterViewModel;

@@ -1,6 +1,6 @@
 package viewmodel;
 
-import model.Model;
+import mediator.Model;
 
 public class LimitViewModel {
     private Model model;
