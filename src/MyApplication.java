@@ -17,8 +17,8 @@ public class MyApplication extends Application {
         Model model = new ModelManager();
         ViewModelFactory viewModelFactory = new ViewModelFactory(model);
 
-        t1 = new Thread(new Thermometer(model, "t1", Math.random(), 1));
-        t2 = new Thread(new Thermometer(model, "t2", Math.random(), 2));
+        t1 = new Thread(new Thermometer(model, "t1", 0, 1));
+        t2 = new Thread(new Thermometer(model, "t2", 0, 7));
 
         t1.start();
         t2.start();
