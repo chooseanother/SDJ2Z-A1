@@ -26,7 +26,7 @@ public class HistoryViewModel implements PropertyChangeListener {
     }
 
     @Override public void propertyChange(PropertyChangeEvent evt) {
-        if (evt.getPropertyName().equals("add")) {
+        if (evt.getPropertyName().equals("temperature")) {
             if (list.size() > 20) {
                 list.remove(list.size() - 1);
             }
