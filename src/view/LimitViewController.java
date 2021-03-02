@@ -34,15 +34,22 @@ public class LimitViewController {
     }
 
     @FXML private void t1UpperSet(ActionEvent event) {
+//        viewModel.setUpper();
     }
 
     @FXML private void t1LowerSet(ActionEvent event) {
+//        viewModel.setUpper();
+
     }
 
     @FXML private void t2UpperSet(ActionEvent event) {
+//        viewModel.setUpper();
+
     }
 
     @FXML private void t2LowerSet(ActionEvent event) {
+//        viewModel.setUpper();
+
     }
 
     @FXML private void back(ActionEvent event) {
