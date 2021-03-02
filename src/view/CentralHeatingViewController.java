@@ -46,7 +46,6 @@ public class CentralHeatingViewController {
 
     @FXML
     private void onDown(){
-
         viewModel.down();
     }
 
