@@ -1,10 +1,17 @@
 package view;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.Region;
 import viewmodel.HistoryViewModel;
 
 
 public class HistoryViewController {
+    @FXML private TableView<HistoryViewController> temperatureTable;
+    @FXML private TableColumn<HistoryViewController, String> IDColumn;
+    @FXML private TableColumn<HistoryViewController, Double> temperatureColumn;
     private ViewHandler viewHandler;
     private HistoryViewModel viewModel;
     private Region root;
@@ -16,6 +23,7 @@ public class HistoryViewController {
         this.viewModel = viewModel;
         this.root = root;
 
+        //IDColumn.setCellValueFactory(cellData -> cellData.getValue());
         //bind
     }
 
@@ -25,5 +33,9 @@ public class HistoryViewController {
 
     public void reset(){
         viewModel.clear();
+    }
+
+    public void backOnAction(ActionEvent actionEvent) {
+        viewHandler.openView("home");
     }
 }
