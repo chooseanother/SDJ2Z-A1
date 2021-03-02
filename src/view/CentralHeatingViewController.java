@@ -1,5 +1,6 @@
 package view;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -45,6 +46,7 @@ public class CentralHeatingViewController {
 
     @FXML
     private void onDown(){
+
         viewModel.down();
     }
 
@@ -57,4 +59,12 @@ public class CentralHeatingViewController {
     private void onCritical(){
         viewHandler.openView("limit");
     }
+
+    @FXML
+    public void onHistory() {
+        viewHandler.openView("history");
+    }
+
+
+
 }
