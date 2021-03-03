@@ -13,19 +13,17 @@ import java.beans.PropertyChangeListener;
 public class HistoryViewModel implements PropertyChangeListener {
     private Model model;
     private ObservableList<SimpleTemperatureViewModel> list;
-    private ObjectProperty<SimpleTemperatureViewModel> selectedExerciseProperty;
+
 
 
     public HistoryViewModel(Model model){
         this.model = model;
         this.model.addListener(this);
         this.list = FXCollections.observableArrayList();
-        selectedExerciseProperty = new SimpleObjectProperty<>();
+
     }
 
-    public void setSelected(SimpleTemperatureViewModel exerciseVM){
-        selectedExerciseProperty = new SimpleObjectProperty<>(exerciseVM);
-    }
+
 
     public ObservableList<SimpleTemperatureViewModel> getAll(){
         return list;

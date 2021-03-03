@@ -15,6 +15,7 @@ public class HistoryViewController {
     @FXML private TableView<SimpleTemperatureViewModel> temperatureTable;
     @FXML private TableColumn<SimpleTemperatureViewModel, String> IDColumn;
     @FXML private TableColumn<SimpleTemperatureViewModel, String> temperatureColumn;
+    @FXML private TableColumn<SimpleTemperatureViewModel, String> timeColumn;
 
     private ViewHandler viewHandler;
     private HistoryViewModel viewModel;
@@ -26,14 +27,10 @@ public class HistoryViewController {
         this.viewHandler = viewHandler;
         this.viewModel = viewModel;
         this.root = root;
-        temperatureTable.getSelectionModel().selectedItemProperty().addListener(
-                (obs, oldVal, newVal) -> viewModel.setSelected(newVal));
         IDColumn.setCellValueFactory(cellData -> cellData.getValue().getIDProperty());
-        temperatureColumn.setCellValueFactory(cellData -> cellData.getValue().getValueProperty().asString());
-
+        temperatureColumn.setCellValueFactory(cellData -> cellData.getValue().getValueProperty());
+        timeColumn.setCellValueFactory(cellData -> cellData.getValue().getTimeProperty());
         temperatureTable.setItems(viewModel.getAll());
-
-        //bind
     }
 
     public Region getRoot(){
