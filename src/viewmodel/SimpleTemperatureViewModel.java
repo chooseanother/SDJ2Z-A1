@@ -8,17 +8,20 @@ import model.Temperature;
 
 public class SimpleTemperatureViewModel {
   private StringProperty IDProperty;
-  private DoubleProperty valueProperty;
+  private StringProperty valueProperty;
+  private StringProperty timeProperty;
 
   public SimpleTemperatureViewModel(Temperature temperature){
     IDProperty = new SimpleStringProperty(temperature.getId());
-    valueProperty = new SimpleDoubleProperty(temperature.getValue());
+    valueProperty = new SimpleStringProperty(String.format("%.1f",temperature.getValue()));
+    timeProperty = new SimpleStringProperty(temperature.getTime().getTimestamp());
   }
 
   public StringProperty getIDProperty(){
     return IDProperty;
   }
-  public DoubleProperty getValueProperty(){
+  public StringProperty getValueProperty(){
     return valueProperty;
   }
+  public StringProperty getTimeProperty(){return timeProperty;}
 }
