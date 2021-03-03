@@ -12,7 +12,7 @@ import java.beans.PropertyChangeListener;
 
 public class CentralHeatingViewModel implements PropertyChangeListener {
     private Model model;
-    private StringProperty t0, t1, t2, t1Warn, t2Warn, heatLvl;
+    private StringProperty t0, t1, t2, warning, heatLvl;
 
     public CentralHeatingViewModel(Model model) {
         this.model = model;
@@ -20,15 +20,13 @@ public class CentralHeatingViewModel implements PropertyChangeListener {
         t0 = new SimpleStringProperty();
         t1 = new SimpleStringProperty();
         t2 = new SimpleStringProperty();
-        t1Warn = new SimpleStringProperty();
-        t2Warn = new SimpleStringProperty();
+        warning = new SimpleStringProperty();
         heatLvl = new SimpleStringProperty(String.valueOf(model.getHeatPower()));
     }
 
     public void clear() {
 
-        t1Warn.setValue("");
-        t2Warn.setValue("");
+        warning.setValue("");
         heatLvl.set(String.valueOf(model.getHeatPower()));
     }
 
@@ -55,12 +53,8 @@ public class CentralHeatingViewModel implements PropertyChangeListener {
     }
 
 
-    public StringProperty getT1Warn() {
-        return t1Warn;
-    }
-
-    public StringProperty getT2Warn() {
-        return t2Warn;
+    public StringProperty getWarning() {
+        return warning;
     }
 
     public StringProperty getHeatLvl() {
@@ -71,13 +65,27 @@ public class CentralHeatingViewModel implements PropertyChangeListener {
     public void propertyChange(PropertyChangeEvent event) {
         Platform.runLater(() ->
         {
+            //works but is stupid hack not correct way i guess
+            heatLvl.set(String.valueOf(model.getHeatPower()));
+            warning.setValue("");
             if (event.getPropertyName().equals("temperature")) {
                 Temperature temp = model.getLastInsertedTemperature();
                 if (temp.getId().equals("t1")) {
-                    t1.set(String.format("%.2f", temp.getValue()));
+                    t1.set(String.format("%.1f", temp.getValue()));
                 } else if (temp.getId().equals("t2")) {
-                    t2.set(String.format("%.2f", temp.getValue()));
+                    t2.set(String.format("%.1f", temp.getValue()));
                 }
+            }
+            else if (event.getPropertyName().equals("overtop")){
+                Temperature temp = (Temperature) event.getOldValue();
+                warning.setValue(String.format("%s - %s: %.1f limit: %s \n %s",temp.getId(),event.getNewValue(),
+                        temp.getValue(),model.getUpperLimit(),temp.getTime().getTimestamp()));
+
+            }
+            else if (event.getPropertyName().equals("underbottom")){
+                Temperature temp = (Temperature) event.getOldValue();
+                warning.setValue(String.format("%s - %s: %.1f limit: %s \n %s",temp.getId(),event.getNewValue(),
+                        temp.getValue(),model.getLowerLimit(),temp.getTime().getTimestamp()));
             }
         });
     }
