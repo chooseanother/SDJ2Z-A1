@@ -12,7 +12,7 @@ public class WarningLogViewController {
     public Label WarningLog;
     public Button back;
     public ListView<String> logTable;
-    public Label newWarning;
+
     private ViewHandler viewHandler;
     private WarningLogViewModel viewModel;
     private Region root;
@@ -23,7 +23,7 @@ public class WarningLogViewController {
         this.viewHandler = viewHandler;
         this.viewModel = viewModel;
         this.root = root;
-        newWarning.textProperty().bind(viewModel.getWarning());
+
         logTable.setItems(viewModel.getLog());
 
         //add to list
