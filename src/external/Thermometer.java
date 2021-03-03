@@ -33,6 +33,9 @@ public class Thermometer implements Runnable{
                 p = model.getHeatPower();
                 int seconds = (int) (Math.random() * 4 + 4);
                 Thread.sleep(seconds * 1000);
+                if (model.getLastInsertedTemperature("t0")!=null){
+                    t0 = model.getLastInsertedTemperature("t0").getValue();
+                }
                 t = temperature(t, p, d, t0, seconds);
                 System.out.printf(id + " %.1f\n", t);
                 model.addTemperature(id,t);
@@ -43,6 +46,7 @@ public class Thermometer implements Runnable{
             }
         }
     }
+
 
     public void stop()
     {
@@ -83,25 +87,5 @@ public class Thermometer implements Runnable{
         double outdoorTerm = (t - t0) * s / 250.0;
         t = Math.min(Math.max(t - outdoorTerm + heaterTerm, t0), tMax);
         return t;
-    }
-
-    /**
-     * Calculating the external temperature.
-     * Values are only valid if the temperature is being measured
-     * approximately every 10th second.
-     *
-     * @param t0 the last measured external temperature
-     * @param min a lower limit (may temporally be deceeded)
-     * @param max an upper limit (may temporally be exceeded)
-     * @return an updated external temperature
-     */
-
-    public double externalTemperature(double t0, double min, double max)
-    {
-        double left = t0 - min;
-        double right = max - t0;
-        int sign = Math.random() * (left + right) > left ? 1 : -1;
-        t0 += sign * Math.random();
-        return t0;
     }
 }
