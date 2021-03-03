@@ -1,5 +1,6 @@
 package viewmodel;
 
+import javafx.application.Platform;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
@@ -31,11 +32,13 @@ public class HistoryViewModel implements PropertyChangeListener {
     }
 
     @Override public void propertyChange(PropertyChangeEvent evt) {
-        if (evt.getPropertyName().equals("temperature")) {
-            if (list.size() >= 20) {
-                list.remove(list.size() - 1);
+        Platform.runLater(() -> {
+            if (evt.getPropertyName().equals("temperature")) {
+                if (list.size() >= 20) {
+                    list.remove(list.size() - 1);
+                }
+                list.add(0,new SimpleTemperatureViewModel(model.getLastInsertedTemperature()));
             }
-            list.add(0,new SimpleTemperatureViewModel(model.getLastInsertedTemperature()));
-        }
+        });
     }
 }
