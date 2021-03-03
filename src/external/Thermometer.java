@@ -17,7 +17,7 @@ public class Thermometer implements Runnable{
         this.id = id;
         this.t = t;
         this.d = d;
-        this.p = 2;     // heaters power {0, 1, 2 or 3}
+        this.p = 0;     // heaters power {0, 1, 2 or 3}
         this.t0 = 0.0;  // outdoor temperature
         this.model = model;
     }
@@ -30,6 +30,7 @@ public class Thermometer implements Runnable{
         {
             try
             {
+                p = model.getHeatPower();
                 int seconds = (int) (Math.random() * 4 + 4);
                 Thread.sleep(seconds * 1000);
                 t = temperature(t, p, d, t0, seconds);
