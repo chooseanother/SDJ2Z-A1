@@ -7,6 +7,8 @@ import mediator.Model;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import model.Temperature;
+import view.WarningLogViewController;
 
 import java.awt.*;
 import java.beans.PropertyChangeEvent;
@@ -19,6 +21,7 @@ public class WarningLogViewModel implements  PropertyChangeListener  {
 
     public WarningLogViewModel(Model model) {
         this.model = model;
+        this.model.addListener(this);
         log = FXCollections.observableArrayList();
         this.warning = new SimpleStringProperty("");
         //loadFromModel();
@@ -51,8 +54,20 @@ public class WarningLogViewModel implements  PropertyChangeListener  {
     public void propertyChange(PropertyChangeEvent evt) {
 
         Platform.runLater(()->{
-            if (evt.getPropertyName().equals("warning")) {
-            //addWarning((Warning) evt.getNewValue());
+            if (evt.getPropertyName().equals("overtop")) {
+
+                Temperature temp = ((Temperature) evt.getOldValue());
+
+                log.add("ID of thermometer: "+ temp.getId() + "  temperature: "+String.format("%.2f",temp.getValue())+" time: "+temp.getTime().getTimestamp() + "  its too hot");
+                //addWarning((Warning) evt.getNewValue());
+
+            }
+            if (evt.getPropertyName().equals("underbottom")) {
+
+                Temperature temp = ((Temperature) evt.getOldValue());
+                log.add("ID of thermometer: "+ temp.getId() + "  temperature: "+String.format("%.2f",temp.getValue())+" time: "+temp.getTime().getTimestamp() + "  its too cold");
+                //addWarning((Warning) evt.getNewValue());
+
             }
         });
 
