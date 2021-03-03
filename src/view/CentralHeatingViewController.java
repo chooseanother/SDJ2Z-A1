@@ -8,7 +8,7 @@ import javafx.scene.layout.Region;
 import viewmodel.CentralHeatingViewModel;
 
 public class CentralHeatingViewController {
-    @FXML Label t0,t1,t2,t0Warn,t1Warn,t2Warn,heatLvl;
+    @FXML Label t0,t1,t2,t1Warn,t2Warn,heatLvl;
     @FXML Button up, down;
     private ViewHandler viewHandler;
     private CentralHeatingViewModel viewModel;
@@ -25,7 +25,6 @@ public class CentralHeatingViewController {
         t0.textProperty().bind(viewModel.getT0());
         t1.textProperty().bind(viewModel.getT1());
         t2.textProperty().bind(viewModel.getT2());
-        t0Warn.textProperty().bind(viewModel.getT0Warn());
         t1Warn.textProperty().bind(viewModel.getT1Warn());
         t2Warn.textProperty().bind(viewModel.getT2Warn());
         heatLvl.textProperty().bind(viewModel.getHeatLvl());
@@ -46,7 +45,6 @@ public class CentralHeatingViewController {
 
     @FXML
     private void onDown(){
-
         viewModel.down();
     }
 
