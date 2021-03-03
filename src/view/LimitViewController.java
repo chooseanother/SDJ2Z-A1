@@ -1,15 +1,17 @@
 package view;
 
+import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
+import utility.NumberStringConverter;
 import viewmodel.LimitViewModel;
 
 public class LimitViewController {
-    @FXML private Label t1UpperLabel, t1LowerLabel, t2UpperLabel,t2LowerLabel,errorLabel;
-    @FXML private TextField t1UpperText, t1LowerText, t2UpperText, t2LowerText;
+    @FXML private Label upperLabel, lowerLabel, errorLabel;
+    @FXML private TextField upperText, lowerText;
     private ViewHandler viewHandler;
     private LimitViewModel viewModel;
     private Region root;
@@ -22,7 +24,11 @@ public class LimitViewController {
         this.root = root;
 
         //bind
-
+        upperLabel.textProperty().bind(viewModel.getUpperProperty());
+        lowerLabel.textProperty().bind(viewModel.getLowerProperty());
+        errorLabel.textProperty().bind(viewModel.getErrorProperty());
+        Bindings.bindBidirectional(upperText.textProperty(), viewModel.getSetUpperProperty(), new NumberStringConverter());
+        Bindings.bindBidirectional(lowerText.textProperty(), viewModel.getSetLowerProperty(), new NumberStringConverter());
     }
 
     public Region getRoot(){
@@ -33,26 +39,25 @@ public class LimitViewController {
         viewModel.clear();
     }
 
-    @FXML private void t1UpperSet(ActionEvent event) {
-//        viewModel.setUpper();
+
+    @FXML private void upperSet(ActionEvent event) {
+        viewModel.setUpper();
     }
 
-    @FXML private void t1LowerSet(ActionEvent event) {
-//        viewModel.setUpper();
-
-    }
-
-    @FXML private void t2UpperSet(ActionEvent event) {
-//        viewModel.setUpper();
-
-    }
-
-    @FXML private void t2LowerSet(ActionEvent event) {
-//        viewModel.setUpper();
-
+    @FXML private void lowerSet(ActionEvent event) {
+        viewModel.setLower();
     }
 
     @FXML private void back(ActionEvent event) {
         viewHandler.openView("home");
+    }
+
+
+    @FXML private void onEnterUpper(ActionEvent event) {
+        upperSet(event);
+    }
+
+    @FXML private void onEnterLower(ActionEvent event) {
+        lowerSet(event);
     }
 }
