@@ -2,11 +2,11 @@ package utility;
 
 import javafx.util.StringConverter;
 
-public class DoubleStringConverter extends StringConverter<Double>
+public class NumberStringConverter extends StringConverter<Number>
 {
   @Override
-  public String toString(Double aDouble) {
-    return aDouble == null || aDouble == 0.0 ? "" : aDouble.toString();
+  public String toString(Number number) {
+    return number == null || number.doubleValue() == 0.0 ? "" : number.toString();
   }
 
   @Override public Double fromString(String s)
