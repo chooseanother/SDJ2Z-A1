@@ -67,6 +67,7 @@ public class CentralHeatingViewModel implements PropertyChangeListener {
         {
             //works but is stupid hack not correct way i guess
             heatLvl.set(String.valueOf(model.getHeatPower()));
+
             warning.setValue("");
             if (event.getPropertyName().equals("temperature")) {
                 Temperature temp = model.getLastInsertedTemperature();
@@ -74,7 +75,10 @@ public class CentralHeatingViewModel implements PropertyChangeListener {
                     t1.set(String.format("%.1f", temp.getValue()));
                 } else if (temp.getId().equals("t2")) {
                     t2.set(String.format("%.1f", temp.getValue()));
+                } else if (temp.getId().equals("t0")) {
+                    t0.set(String.format("%.1f", temp.getValue()));
                 }
+
             }
             else if (event.getPropertyName().equals("overtop")){
                 Temperature temp = (Temperature) event.getOldValue();
