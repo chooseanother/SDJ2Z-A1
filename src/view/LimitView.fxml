@@ -18,8 +18,8 @@
                   <HBox spacing="5.0">
                      <children>
                         <Label prefWidth="70.0" text="Upper limit:" />
-                        <Label fx:id="upperLabel" text="1234" />
-                        <TextField fx:id="upperText" prefWidth="35.0" />
+                        <Label fx:id="upperLabel" alignment="CENTER_RIGHT" prefWidth="40.0" text="1234" />
+                        <TextField fx:id="upperText" onAction="#onEnterUpper" prefWidth="40.0" />
                         <Button mnemonicParsing="false" onAction="#upperSet" text="Set" />
                      </children>
                      <padding>
@@ -29,8 +29,8 @@
                   <HBox spacing="5.0">
                      <children>
                         <Label prefWidth="70.0" text="Lower limit:" />
-                        <Label fx:id="lowerLabel" text="1234" />
-                        <TextField fx:id="lowerText" prefWidth="35.0" />
+                        <Label fx:id="lowerLabel" alignment="CENTER_RIGHT" prefWidth="40.0" text="1234" />
+                        <TextField fx:id="lowerText" onAction="#onEnterLower" prefWidth="40.0" />
                         <Button mnemonicParsing="false" onAction="#lowerSet" text="Set" />
                      </children>
                      <padding>

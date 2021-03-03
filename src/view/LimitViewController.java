@@ -6,8 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
-import utility.DoubleStringConverter;
-import utility.IntStringConverter;
+import utility.NumberStringConverter;
 import viewmodel.LimitViewModel;
 
 public class LimitViewController {
@@ -28,8 +27,8 @@ public class LimitViewController {
         upperLabel.textProperty().bind(viewModel.getUpperProperty());
         lowerLabel.textProperty().bind(viewModel.getLowerProperty());
         errorLabel.textProperty().bind(viewModel.getErrorProperty());
-//        Bindings.bindBidirectional(upperText.textProperty(), viewModel.getSetUpperProperty(), new IntStringConverter());
-//        Bindings.bindBidirectional(lowerText.textProperty(), viewModel.getSetLowerProperty(), new DoubleStringConverter());
+        Bindings.bindBidirectional(upperText.textProperty(), viewModel.getSetUpperProperty(), new NumberStringConverter());
+        Bindings.bindBidirectional(lowerText.textProperty(), viewModel.getSetLowerProperty(), new NumberStringConverter());
     }
 
     public Region getRoot(){
@@ -51,5 +50,14 @@ public class LimitViewController {
 
     @FXML private void back(ActionEvent event) {
         viewHandler.openView("home");
+    }
+
+
+    @FXML private void onEnterUpper(ActionEvent event) {
+        upperSet(event);
+    }
+
+    @FXML private void onEnterLower(ActionEvent event) {
+        lowerSet(event);
     }
 }
