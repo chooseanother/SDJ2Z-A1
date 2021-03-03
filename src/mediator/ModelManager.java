@@ -73,11 +73,15 @@ public class ModelManager implements Model
     }
 
     @Override public void setUpperLimit(double value) throws Exception {
+        Double old = getUpperLimit();
         limits.setUpper(value);
+        property.firePropertyChange("setUpperLimit",old,value);
     }
 
     @Override public void setLowerLimit(double value) throws Exception {
+        Double old = getLowerLimit();
         limits.setLower(value);
+        property.firePropertyChange("setLowerLimit",old,value);
     }
 
     @Override
