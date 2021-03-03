@@ -58,7 +58,7 @@ public class WarningLogViewModel implements  PropertyChangeListener  {
 
                 Temperature temp = ((Temperature) evt.getOldValue());
 
-                log.add("ID of thermometer: "+ temp.getId() + "  temperature: "+String.format("%.2f",temp.getValue())+" time: "+temp.getTime() + "  its too hot");
+                log.add("ID of thermometer: "+ temp.getId() + "  temperature: "+String.format("%.2f",temp.getValue())+" time: "+temp.getTime().getTimestamp() + "  its too hot");
                 //addWarning((Warning) evt.getNewValue());
 
             }
